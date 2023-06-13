@@ -1,5 +1,6 @@
 import dask.dataframe as dd
 
+# подгрузка данных и преобразовываем к единой структуре
 df = dd.read_csv('C:/Users/isaev/MDP/parse_data/organizations.csv', sep=';', dtype='object')\
 [['id_organization', 'business_size', 'inn', 'legal_name', 'region_code', 'description']]
 
