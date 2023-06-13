@@ -19,7 +19,7 @@ MAX_TRY_NUM: int = 10
 SLEEP_TIME_DEFAULT: float = 0.25
 SLEEP_TIME_DISCONNECTED: float = 1
 
-
+# получаем request HTML код страницы
 def request_get(
     session: requests_html.HTMLSession, url: str,
     params: Optional[Dict[str, Any]] = None
@@ -79,7 +79,8 @@ class FullInternshipList:
             raise ValueError('Can not find sj_paginator_bin')
         else:
             self.page_count = int(paginator_bins[0].text)
-
+   
+    # получаем информацию с html кода страницы
     def get_internship_data(
         self, url: str
     ) -> Dict[str, Any]:
@@ -124,7 +125,7 @@ class FullInternshipList:
                     requirements_employment_match.group(2)
 
         return result
-
+    # получаем элементы с HTML кода страницы и выгружаем элементы в csv файлы
     def get_html_internship_elements(
         self, html
     ) -> List[Dict[str, Any]]:
@@ -180,6 +181,7 @@ class FullInternshipList:
         return self.page_count
 
 
+# с помощью библиотеки click параметризуем код
 @click.command()
 @click.argument(
     'city', type=click.STRING
