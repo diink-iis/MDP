@@ -6,3 +6,4 @@
 - парсинг: Python
 - диалект БД: PostgreSQL
 - локальный сервер: OpenServerPanel
+- html, css, php, js
